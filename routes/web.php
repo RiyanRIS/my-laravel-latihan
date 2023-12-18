@@ -17,12 +17,11 @@ use App\Http\Controllers\HelloController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/pegawais', 'PegawaiController@tes');
 
-Route::get('/hello', [HelloController::class, 'hello']);
+// Route::get('/hello', [HelloController::class, 'hello']);
 
+Route::redirect('/', '/login');
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -45,7 +44,6 @@ Route::middleware(['auth'])->group(function () {
     //     // Uses first & second Middleware
     // });
 });
-
 
 
 Route::get('/home', 'HomeController@index')->name('home');

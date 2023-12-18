@@ -27,6 +27,7 @@ class HomeController extends Controller
         $user = Auth::user();
         // dd($user->name);
         $data = [
+            'title' => 'Dashboard',
             'user' => $user
         ];
         return view('home', $data);
